@@ -1,0 +1,54 @@
+.number {
+    padding: 8px;
+    display: table;
+    margin: auto;
+    background: black;
+    color: #666;
+
+    font: 32px Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    font: 32px Arial, sans-serif;
+    background-color: black;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.content {
+	border-style: solid;
+  border-radius: 20px;
+	padding: 40px;
+  display: table-cell;
+  vertical-align: middle;
+  display: table;
+  margin: auto;
+  color: white;
+}
+
+.realign {
+    display: table;
+    margin: auto;
+}
+
+.buttons {	
+    display: inline;
+    display: inline-block;
+  	font-size: 18px;
+  	margin: 4px 4px;
+  	padding: 12px 28px;
+  	background-color: black; 
+  	color: white; 
+  	border: 2px solid white;
+  	cursor: pointer;
+    border-radius: 10px;
+}

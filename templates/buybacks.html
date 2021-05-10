@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buyback Tracker</title>
+    <link rel="icon" href="static/images/vesperlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/buybacks.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-body">
+<main id="app">
+    <div class="max-w-screen-xl mx-auto px-4">
+        <div class="max-w-screen-xl mx-auto w-full">
+            <br>
+            <div class="font-title text-4xl md:text-5xl lg:text-6xl text-center pt-20 pb-20 uppercase">
+                Vesper Buyback Balance Tracker <br>
+            </div>
+            <div class="md:text-3xl text-center pt-10 pb-2">
+                This dashboard tracks the total balance used for VSP buybacks across the PaymentSplitter, Geyser, VVSP and Multisig addresses <br> NOTE: The numbers displayed are in the form of vTokens. <br>
+            </div>
+            <br><hr>
+        </div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 mt-8">
+            <div class="max-w-screen-xl mx-autow-full">
+            </div>
+            <div class="max-w-screen-xl mx-autow-full">
+                <div class="">
+                    <div
+                        class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 border-gray-200 border-t-2 relative">
+                        <div class="flex">
+                            <img class="w-auto logo mr-6" src="static/images/dollar2.png" alt="Logo"/> <span
+                                class="font-medium text-3xl lg:text-4xl mb-2">Total Value</span>
+                        </div>
+                        <div class=" text-4xl lg:text-5xl mb-2">
+                            {{ total_value }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-screen-xl mx-autow-full">
+            </div>
+            <div class="max-w-screen-xl mx-autow-full">
+                <div class="">
+                    <div
+                        class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 border-gray-200 border-t-2 relative">
+                        <div class="flex">
+                            <img class="w-auto logo mr-6" src="static/images/ethereum.jpg" alt="Logo"/> <span
+                                class="font-medium text-3xl lg:text-4xl mb-2">Ethereum</span>
+                        </div>
+                        <div class=" text-4xl lg:text-5xl mb-2">
+                            {{ balance_outputs[0] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-screen-xl mx-auto w-full">
+                <div class="">
+                    <div class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4  border-gray-200 border-t-2 relative">
+                        <div class="flex">
+                            <img class="w-auto logo mr-6" src="static/images/bitcoin.svg" alt="Logo"/> <span
+                                class="font-medium text-3xl lg:text-4xl mb-2">Bitcoin</span>
+                        </div>
+                        <div class=" text-4xl lg:text-5xl mb-2">
+                            {{ balance_outputs[1] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-screen-xl mx-auto w-full">
+                <div class="">
+                    <div class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4  border-gray-200 border-t-2 relative">
+                        <div class="flex">
+                            <img class="w-auto logo mr-6" src="static/images/usdc.png" alt="Logo"/> <span
+                                class="font-medium text-3xl lg:text-4xl mb-2">USDC</span>
+                        </div>
+                        <div class=" text-4xl lg:text-5xl mb-2">
+                            {{ balance_outputs[2] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-screen-xl mx-auto w-full">
+                <div class="">
+                    <div class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4  border-gray-200 border-t-2 relative">
+                        <div class="flex">
+                            <img class="w-auto logo mr-6" src="static/images/dai.png" alt="Logo"/> <span
+                                class="font-medium text-3xl lg:text-4xl mb-2">DAI</span>
+                        </div>
+                        <div class=" text-4xl lg:text-5xl mb-2">
+                            {{ balance_outputs[3] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-screen-xl mx-auto w-full">
+                <div class="">
+                    <div class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4  border-gray-200 border-t-2 relative">
+                        <div class="flex">
+                            <img class="w-auto logo mr-6" src="static/images/link.png" alt="Logo"/> <span
+                                class="font-medium text-3xl lg:text-4xl mb-2">Link</span>
+                        </div>
+                        <div class=" text-4xl lg:text-5xl mb-2">
+                            {{ balance_outputs[4] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-screen-xl mx-auto w-full">
+                <div class="">
+                    <div class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4  border-gray-200 border-t-2 relative">
+                        <div class="flex">
+                            <img class="w-auto logo mr-6" src="static/images/geyser.png" alt="Logo"/> <span
+                                class="font-medium text-3xl lg:text-4xl mb-2">Geyser</span>
+                        </div>
+                        <div class=" text-4xl lg:text-5xl mb-2">
+                            {{ balance_outputs[5] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 mb-12">
+            <div
+                class="bg-blue-100 border-blue-500 text-blue-700 pt-6 pb-6 text-xl rounded px-8  border-gray-200 border-1 relative text-center w-full md:w-8/12 mx-auto">
+                <div class="font-bold text-4xl sm:text-5xl lg:text-6xl">
+                    1 VSP = {{ vesper_price }}$
+                </div>
+            </div>
+        </div>
+        <br><hr><br>
+
+        <div class="font-title text-4xl md:text-5xl lg:text-6xl text-center pt-4 pb-4">
+            MORE VESPER-RELATED TOOLS <br>
+            <a href="http://vsptools.herokuapp.com/calculator" class="top-button">vVSP RATIO CALCULATOR</a>
+            <a href="http://pure.finance" class="top-button">PURE FINANCE TOOLKIT</a>
+            <a href="http://pure.finance/merkle-claims" class="top-button">CLAIM ONSEN REWARDS</a>
+        </div>
+
+        <footer>
+            <div class="text-center font-title">v1.2 — Made with ♡ by <a style="color: blue" href="https://www.twitter.com/m4ri0ml" target="_blank" rel="noopener noreferrer">m4ri0ml</a></div>
+            <br><br>
+        </footer>
+    </div>
+</main>
+</html>
