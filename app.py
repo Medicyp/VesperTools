@@ -44,6 +44,7 @@ def index():
 		cg_output = cg.get_token_price(id='ethereum', vs_currencies='usd', contract_addresses=tokens[i])
 		price_outputs.append(cg_output[tokens[i]]['usd'])
 		total_value += round(float(price_outputs[i]) * float(balance_outputs[i]), 2)
+		total_value = f"{total_value:,d}" #Should add commas to separate the thousands
 
 	# Get Geyser balance from vesper's geyser contract + Append it to balances array.
 	geyser_contract = w3.eth.contract(Web3.toChecksumAddress('0xbEa98c05eEAe2f3bC8c3565Db7551Eb738c8CCAb'), abi=abi)
